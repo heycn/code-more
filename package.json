@@ -1,0 +1,19 @@
+{
+  "name": "wheels",
+  "version": "1.0.0",
+  "description": "学着造轮子，学着用轮子, 造轮子是一种学习方式，能够快速进步，但不是一种学习目的",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heycn/wheels.git"
+  },
+  "keywords": [],
+  "author": "heycn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heycn/wheels/issues"
+  },
+  "homepage": "https://github.com/heycn/wheels#readme",
+  "dependencies": {}
+}

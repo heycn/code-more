@@ -7,5 +7,12 @@
 请使全局安装 `ts-node`
 
 ```bash
-npm i -g ts-node
+npm i -g ts-node@8.3.0
 ```
+
+## 轮子列表
+
+- [x] [EventHub/发布订阅](/eventhub/)
+- [ ] [deepClone/深拷贝](/deepClone/)
+- [ ] [bind](/bind/)
+- [ ] [Promise](/promise/)
