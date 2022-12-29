@@ -1,6 +1,6 @@
 export class EventHub {
   private cache: { [key: string]: Array<(data: unknown) => void> } = {}
-  on(eventName: string, fn: (data: unknown) => void) {
+  on(eventName: string, fn: (data: any) => void) {
     this.cache[eventName] = this.cache[eventName] || []
     this.cache[eventName].push(fn)
   }
