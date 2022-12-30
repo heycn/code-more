@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 logs
 *.log
 npm-debug.log*
@@ -11,7 +11,6 @@ coverage
 .grunt
 .lock-wscript
 build/Release
-node_modules
 jspm_packages
 .npm
 .node_repl_history
