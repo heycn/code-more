@@ -1,0 +1,15 @@
+{
+  "name": "deep-clone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "sinon": "^7.4.1",
+    "sinon-chai": "^3.3.0"
+  }
+}
