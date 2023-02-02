@@ -42,5 +42,15 @@ describe('deepClone', () => {
       assert(arr[2] !== arr2[2])
       assert.deepEqual(arr, arr2)
     })
+    it('能够复制函数', () => {
+      const fn = (x, y) => x + y
+      fn.xxx = { yyy: { zzz: 1 } }
+      const fn2 = deepClone(fn)
+      assert(fn !== fn2)
+      assert(fn.xxx.yyy.zzz === fn2.xxx.yyy.zzz)
+      assert(fn.xxx.yyy !== fn2.xxx.yyy)
+      assert(fn.xxx !== fn2.xxx)
+      assert(fn(1, 2) === fn2(1, 2))
+    })
   })
 })
