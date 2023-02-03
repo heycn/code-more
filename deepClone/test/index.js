@@ -52,5 +52,12 @@ describe('deepClone', () => {
       assert(fn.xxx !== fn2.xxx)
       assert(fn(1, 2) === fn2(1, 2))
     })
+    it('能够复制环', () => {
+      const cycle = { name: 'heycn' }
+      cycle.self = cycle
+      const cycle2 = deepClone(cycle)
+      assert(cycle.name === cycle2.name)
+      assert(cycle.self !== cycle2.self)
+    })
   })
 })
