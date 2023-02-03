@@ -19,6 +19,8 @@ class DeepCloner {
           dist = new Date(source)
         } else if (source instanceof Set) {
           dist = new Set(source)
+        } else if (source instanceof Map) {
+          dist = new Map(source)
         } else {
           dist = new Object()
         }

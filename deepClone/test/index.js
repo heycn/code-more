@@ -170,5 +170,12 @@ describe('deepClone', () => {
       assert(a.has(1) === a2.has(1))
       assert(a.has({ n: 1 }) === a2.has({ n: 1 }))
     })
+    it('可以复制 Map', () => {
+      const a = new Map()
+      a.set('a', 1)
+      a.set('b', { n: 1 })
+      const a2 = new DeepCloner().clone(a)
+      assert(a !== a2)
+    })
   })
 })
