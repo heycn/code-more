@@ -17,6 +17,8 @@ class DeepCloner {
           dist = new RegExp(source.source, source.flags)
         } else if (source instanceof Date) {
           dist = new Date(source)
+        } else if (source instanceof Set) {
+          dist = new Set(source)
         } else {
           dist = new Object()
         }
