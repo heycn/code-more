@@ -21,7 +21,9 @@ function deepClone(source) {
       }
       cache.push([source, dist])
       for (let key in source) {
-        dist[key] = deepClone(source[key])
+        if (source.hasOwnProperty(key)) {
+          dist[key] = deepClone(source[key])
+        }
       }
       return dist
     }

@@ -93,5 +93,15 @@ describe('deepClone', () => {
       assert(date.xxx.yyy !== date2.xxx.yyy)
       assert(date.xxx !== date2.xxx)
     })
+    it('自动跳过原型属性', () => {
+      const obj = Object.create({ name: 'heycn' })
+      obj.xxx = { yyy: { zzz: 1 } }
+      const obj2 = deepClone(obj)
+      assert(obj !== obj2)
+      assert.isFalse('name' in obj2)
+      assert(obj.xxx.yyy.zzz === obj2.xxx.yyy.zzz)
+      assert(obj.xxx.yyy !== obj2.xxx.yyy)
+      assert(obj.xxx !== obj2.xxx)
+    })
   })
 })
