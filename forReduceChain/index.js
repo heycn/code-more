@@ -14,3 +14,17 @@ const forLoops = files => {
 }
 
 console.log(forLoops(files))
+
+// 2. 使用 reduce
+const reduceWay = files => {
+  return files.reduce((result, file) => {
+    const fileName = file.trim()
+    if (fileName) {
+      const filePath = `~/app/${fileName}`
+      result.push(filePath)
+    }
+    return result
+  }, [])
+}
+
+console.log(reduceWay(files))
