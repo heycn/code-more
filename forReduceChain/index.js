@@ -34,3 +34,13 @@ const reduceWay = files => {
 }
 
 console.log(reduceWay(files))
+
+// 3. 使用链式编程
+const chain = files => (
+  files
+    .map(file => file.trim())
+    .filter(Boolean)
+    .map(fileName => `~/app/${fileName}`)
+)
+
+console.log(chain(files))
