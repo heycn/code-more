@@ -9,7 +9,13 @@ const files = ['avatar.jpg ', '.gitignore', '    ', 'index.js']
 // 1. 使用 for of
 const forLoops = files => {
   const result = []
-  for (const file of files) file.trim() && result.push(file.trim())
+  for (const file of files) {
+    const fileName = file.trim()
+    if (fileName) {
+      const filePath = `~/app/${fileName}`
+      result.push(filePath)
+    }
+  }
   return result
 }
 
@@ -17,14 +23,14 @@ console.log(forLoops(files))
 
 // 2. 使用 reduce
 const reduceWay = files => {
-  return files.reduce((result, file) => {
+  return (files.reduce((result, file) => {
     const fileName = file.trim()
     if (fileName) {
       const filePath = `~/app/${fileName}`
       result.push(filePath)
     }
     return result
-  }, [])
+  }, []))
 }
 
 console.log(reduceWay(files))
