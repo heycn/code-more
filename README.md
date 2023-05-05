@@ -8,17 +8,18 @@
 
 ## TODO
 
-- [x] [EventHub/发布订阅](/eventhub/)
-- [x] [deepClone/深拷贝](/deepClone/)
-- [ ] [bind](/bind/)
-- [ ] [Promise](/promise/)
+- [x] [EventHub/手写发布订阅](/001_Eventhub/)
+- [x] [deepClone/手写深拷贝](/002_DeepClone/)
+- [x] [Method Chaining/链式编程](/003_MethodChaining/)
+- [ ] [手写 bind](/004_Bind/)
+- [ ] [手写 Promise](/005_Promise/)
 
 ## 我的联系方式
 
 除了这里，你还可以在下地方找到我
 
 - 微信：heycn1
-- 知乎：https://www.zhihu.com/people/heycn
-- 掘金：https://juejin.cn/user/4372092371864984/posts
-- Twitter：https://twitter.com/heycn_112
-- Emial：heycn@foxmail.com
+- [知乎](https://www.zhihu.com/people/heycn)
+- [掘金](https://juejin.cn/user/4372092371864984/posts)
+- [Twitter](https://twitter.com/heycn_112)
+- [Emial](heycn@foxmail.com)
