@@ -86,8 +86,6 @@
 
 解决这个问题的方法就是 —— 排队
 
-![消息队列](./images/message_queue1.png)
-
 - 在最开始的时候，渲染主进程会进入一个无限循环（浏览器源码 `base/message_loop/message_pump_default.cc` 中，渲染主线程的启动函数中写了 `for (;;) { ...some code }`）
 - 每一次循环会检查消息队列中是否有任务存在。如果有，就取出第一个任务执行，执行完一个后，进入下一次循环，如果没有，则进入休眠状态
 - 其他所有线程（包括其他进程的线程）可以随时向消息队列添加任务。新任务会加到消息队列的末尾。在添加新任务时，如果主线程是休眠状态，则会将其唤醒，继续循环拿任务
@@ -96,7 +94,7 @@
 
 [事件循环源码链接](https://github.com/chromium/chromium/blob/main/base/message_loop/message_pump_default.cc#L32)
 
-![事件循环源码](./images/message_queue4.png)
+![事件循环源码](./images/message_queue1.png)
 
 ## 三、什么是异步
 
@@ -108,16 +106,8 @@
 
 如果让渲染主线程等待这些任务完成，就会导致主线程长期处于「阻塞」状态，导致浏览器「卡死」
 
-以下为「同步」示例图
-
-![同步](./images/message_queue2.png)
-
 渲染主线程承担着极其重要的工作，无论如何都不能阻塞！\
 因此，浏览器选择异步来解决这个问题
-
-以下为「异步」示例图
-
-![异步](./images/message_queue3.png)
 
 使用异步的方式，渲染主线程永不阻塞
 
