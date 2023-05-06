@@ -13,6 +13,7 @@
 - [x] [Method Chaining/链式编程](/003_MethodChaining/)
 - [ ] [手写 bind](/004_Bind/)
 - [ ] [手写 Promise](/005_Promise/)
+- [x] [EventLoop/事件循环](/006_EventLoop/)
 
 ## 我的联系方式
 
