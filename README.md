@@ -19,7 +19,7 @@
 
 除了这里，你还可以在下地方找到我
 
-- 微信：heycn1
+- 微信：LeoChen_2000
 - [知乎](https://www.zhihu.com/people/heycn)
 - [掘金](https://juejin.cn/user/4372092371864984/posts)
 - [Twitter](https://twitter.com/heycn_112)
