@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="card">
+    <p id="firstName"></p>
+    <p id="lastName"></p>
+    <p id="age"></p>
+  </div>
+  <div>
+    <span>设置姓名</span>
+    <input type="text" oninput="user.name = this.value">
+  </div>
+  <div>
+    <span>设置生日</span>
+    <input type="date" oninput="user.birth = this.value">
+  </div>
+  <script src='./vue.js'></script>
+  <script src='./index.js'></script>
+</body>
+
+</html>

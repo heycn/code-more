@@ -14,6 +14,7 @@
 - [ ] [手写 bind](/004_Bind/)
 - [ ] [手写 Promise](/005_Promise/)
 - [x] [EventLoop/事件循环](/006_EventLoop/)
+- [x] [实现简版 Vue2 响应式原理](/007_Vue2Reactivity/)
 
 ## 我的联系方式
 
