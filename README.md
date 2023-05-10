@@ -18,6 +18,14 @@
 - [ ] [手写 Promise](/005_Promise/)
 - [x] [EventLoop/事件循环](/006_EventLoop/)
 - [x] [实现简版 Vue2 响应式原理](/007_Vue2Reactivity/)
+- [x] [关于递归及优化](/007_Vue2Reactivity/)
+- [x] [关于递归及优化](https://github.com/heycn/code-more/issues/9)
+- [x] [封装 LongPressable 监听长按事件](https://github.com/heycn/code-more/issues/7)
+- [x] [自定义 hook 实现验证码倒计时](https://github.com/heycn/code-more/issues/2)
+- [x] [封装 useSwipe，支持左右滑动事件](https://github.com/heycn/code-more/issues/5)
+- [x] [实时对比服务器时间间隔](https://github.com/heycn/code-more/issues/1)
+- [x] [封装原生 Popover](https://github.com/heycn/code-more/issues/4)
+- [x] [写一个提取 URL 参数的 JS 方法](https://github.com/heycn/code-more/issues/3)
 
 ## 我的联系方式
 
