@@ -17,6 +17,17 @@ function bind(asThis) {
   return resultFn
 }
 
+function _bind(asThis, ...args) {
+  // this 就是函数
+  var fn = this;
+  function resultFn(...args2) {
+    // resultFn.prototype.isPrototypeOf(this);
+    return fn.call(this instanceof resultFn ? this : asThis, ...args, ...args2);
+  }
+  resultFn.prototype = fn.prototype;
+  return resultFn;
+}
+
 module.exports = bind
 
 if (!Function.prototype.bind) {
