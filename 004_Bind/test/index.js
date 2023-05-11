@@ -4,6 +4,7 @@ test1('fn.bind 能用')
 test2('this.bind 能用')
 test3('this, p1, p2 能用')
 test4('this, p1 绑定成功后传 p2 成功')
+test5('new 的时候，绑定了 p1, p2')
 
 function test1(message) {
   Function.prototype.bind2 = bind
@@ -42,5 +43,18 @@ function test4(message) {
   console.assert(anotherFn2(456)[0].name === 'Jack')
   console.assert(anotherFn2(456)[1] === 123)
   console.assert(anotherFn2(456)[2] === 456)
+  console.log(message)
+}
+
+function test5(message) {
+  Function.prototype.bind2 = bind
+  const fn = function (p1, p2) {
+    this.p1 = p1
+    this.p2 = p2
+  }
+  const fn2 = fn.bind(undefined, 'x', 'y')
+  const object = new fn2()
+  console.assert(object.p1 === 'x', 'x')
+  console.assert(object.p2 === 'y', 'y')
   console.log(message)
 }

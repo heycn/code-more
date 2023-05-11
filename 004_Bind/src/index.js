@@ -6,9 +6,13 @@ function bind(asThis) {
   if (typeof fn !== 'function') {
     throw new TypeError('bind 必须调用在函数上')
   }
-  return function () {
+  return function resultFn() {
     var args2 = slice.call(arguments, 0)
-    return fn.apply(asThis, args1.concat(args2))
+    return fn.apply(
+      this.__proto__ === resultFn.prototype
+        ? this
+        : asThis, args1.concat(args2)
+    )
   }
 }
 
