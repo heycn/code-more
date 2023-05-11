@@ -18,7 +18,6 @@
 - [ ] [手写 Promise](/005_Promise/)
 - [x] [EventLoop/事件循环](/006_EventLoop/)
 - [x] [实现简版 Vue2 响应式原理](/007_Vue2Reactivity/)
-- [x] [关于递归及优化](/007_Vue2Reactivity/)
 - [x] [关于递归及优化](https://github.com/heycn/code-more/issues/9)
 - [x] [封装 LongPressable 监听长按事件](https://github.com/heycn/code-more/issues/7)
 - [x] [自定义 hook 实现验证码倒计时](https://github.com/heycn/code-more/issues/2)
