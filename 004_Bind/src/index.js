@@ -1,6 +1,9 @@
 function bind(asThis, p1, p2) {
   // this 就是函数
-  return function () { }
+  const fn = this
+  return function () {
+    return fn.call(asThis)
+  }
 }
 
 module.exports = bind
