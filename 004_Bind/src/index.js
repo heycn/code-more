@@ -6,7 +6,7 @@ function bind(asThis) {
   if (typeof fn !== 'function') {
     throw new TypeError('bind 必须调用在函数上')
   }
-  return function resultFn() {
+  function resultFn() {
     var args2 = slice.call(arguments, 0)
     return fn.apply(
       this.__proto__ === resultFn.prototype
@@ -14,6 +14,8 @@ function bind(asThis) {
         : asThis, args1.concat(args2)
     )
   }
+  resultFn.prototype = fn.prototype
+  return resultFn
 }
 
 module.exports = bind

@@ -5,6 +5,7 @@ test2('this.bind 能用')
 test3('this, p1, p2 能用')
 test4('this, p1 绑定成功后传 p2 成功')
 test5('new 的时候，绑定了 p1, p2')
+test6('new 的时候，绑定了 p1, p2, 并且 fn 有 prototype')
 
 function test1(message) {
   Function.prototype.bind2 = bind
@@ -52,9 +53,25 @@ function test5(message) {
     this.p1 = p1
     this.p2 = p2
   }
-  const fn2 = fn.bind(undefined, 'x', 'y')
+  const fn2 = fn.bind2(undefined, 'x', 'y')
   const object = new fn2()
   console.assert(object.p1 === 'x', 'x')
   console.assert(object.p2 === 'y', 'y')
+  console.log(message)
+}
+
+function test6(message) {
+  Function.prototype.bind2 = bind
+  const fn = function (p1, p2) {
+    this.p1 = p1
+    this.p2 = p2
+  }
+  fn.prototype.sayHi = function () { }
+  const fn2 = fn.bind2(undefined, 'x', 'y')
+  const object = new fn2()
+  console.assert(object.p1 === 'x', 'x')
+  console.assert(object.p2 === 'y', 'y')
+  console.assert(object.__proto__ === fn.prototype)
+  console.assert(typeof object.sayHi === 'function')
   console.log(message)
 }
