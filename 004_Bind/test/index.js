@@ -16,3 +16,8 @@ const newFn2 = fn2.bind({ name: 'Jack' }, 123, 456)
 console.assert(newFn2()[0].name === 'Jack')
 console.assert(newFn2()[1] === 123)
 console.assert(newFn2()[2] === 456)
+
+const anotherFn2 = fn2.bind({ name: 'Jack' }, 123)
+console.assert(anotherFn2(456)[0].name === 'Jack')
+console.assert(anotherFn2(456)[1] === 123)
+console.assert(anotherFn2(456)[2] === 456)
