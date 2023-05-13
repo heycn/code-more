@@ -25,4 +25,8 @@ describe("Promise", () => {
       new Promise(false)
     })
   })
+  it("new Promise(fn) 会生成一个对象，对象有 then 方法", () => {
+    const promise = new Promise(() => {})
+    assert.isFunction(promise.then)
+  })
 })
