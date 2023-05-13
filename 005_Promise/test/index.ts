@@ -1,6 +1,8 @@
-test1('可以测试了')
+import { assert } from 'chai'
+import { describe } from 'mocha'
 
-function test1(message: string) {
-  console.assert(1 === 1)
-  console.log(message)
-}
+describe("Chai 的使用", () => {
+  it("可以测试相等", () => {
+    assert.equal(1, 1)
+  })
+})

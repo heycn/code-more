@@ -1,0 +1,17 @@
+{
+  "name": "005_Promise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha --require ts-node/register test/**/*.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "4.3.5",
+    "@types/mocha": "10.0.1",
+    "chai": "4.3.7",
+    "mocha": "10.2.0",
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4"
+  }
+}
