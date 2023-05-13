@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { assert } from 'chai'
 import { describe } from 'mocha'
 import Promise from '../src'
@@ -36,5 +37,11 @@ describe("Promise", () => {
     })
     // @ts-ignore
     assert(called === true)
+  })
+  it("new Promise(fn) 中的 fn 接受两个函数作为参数", () => {
+    const promise = new Promise((resolve, reject) => {
+      assert.isFunction(resolve)
+      assert.isFunction(reject)
+    })
   })
 })
