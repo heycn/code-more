@@ -29,4 +29,12 @@ describe("Promise", () => {
     const promise = new Promise(() => {})
     assert.isFunction(promise.then)
   })
+  it("new Promise(fn) 中的 fn 是立即执行的", () => {
+    let called = false
+    const promise = new Promise(() => {
+      called = true
+    })
+    // @ts-ignore
+    assert(called === true)
+  })
 })
