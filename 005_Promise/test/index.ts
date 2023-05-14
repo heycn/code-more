@@ -165,4 +165,13 @@ describe("Promise", () => {
     const promise2 = promise.then(() => {}, () => {})
     assert(promise2 instanceof Promise)
   })
+  it("2.2.7.1 如果 onFulfilled 或 onRejected 返回值 x ，运行 [[Resolve]](promise2, x)", done => {
+    const promise1 = new Promise((resolve, reject) => {
+      resolve()
+    })
+    promise1.then(() => "成功", () => {}).then(result => {
+      assert.equal(result, "成功")
+      done()
+    })
+  })
 })
