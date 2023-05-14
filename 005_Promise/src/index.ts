@@ -21,13 +21,13 @@ class Promise2 {
       })
     })
   }
-
   private resolve(result) {
     this.resolveOrReject("fulfilled", result, 0)
   }
   private reject(reason) {
     this.resolveOrReject("rejected", reason, 1)
   }
+
   constructor(fn) {
     if (typeof fn !== "function") {
       throw new Error("我只接受函数")
@@ -44,7 +44,6 @@ class Promise2 {
     }
     handle[2] = new Promise2(() => {})
     this.callbacks.push(handle)
-    // 把函数推到 callbacks 里面
     return handle[2]
   }
   private resolveWithSelf() {
@@ -52,12 +51,8 @@ class Promise2 {
   }
   private resolveWithPromise(x) {
     x.then(
-      result => {
-        this.resolve(result)
-      },
-      reason => {
-        this.reject(reason)
-      }
+      result => { this.resolve(result) },
+      reason => { this.reject(reason) }
     )
   }
   private getThen(x) {
@@ -72,12 +67,8 @@ class Promise2 {
   private resolveWithThenable(x) {
     try {
       x.then(
-        y => {
-          this.resolveWith(y)
-        },
-        r => {
-          this.reject(r)
-        }
+        y => { this.resolveWith(y) },
+        r => { this.reject(r) }
       )
     } catch (e) {
       this.reject(e)
