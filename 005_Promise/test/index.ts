@@ -164,7 +164,7 @@ describe("Promise", () => {
     const promise2 = promise.then(() => {}, () => {})
     assert(promise2 instanceof Promise)
   })
-  it("2.2.7.1 如果 onFulfilled 或 onRejected 返回值 x ，运行 [[Resolve]](promise2, x)", done => {
+  it("2.2.7.1 如果 then(success, fail) 中的 success 返回一个值 x，运行 [[Resolve]](promise2, x)", done => {
     const promise1 = new Promise((resolve, reject) => {
       resolve()
     })
@@ -173,7 +173,7 @@ describe("Promise", () => {
       done()
     })
   })
-  it("2.2.7.1.2 x 是一个 Promise 实例", done => {
+  it("2.2.7.1.2 success 的返回值是一个 Promise 实例", done => {
     const promise1 = new Promise((resolve, reject) => {
       resolve()
     })
@@ -185,12 +185,42 @@ describe("Promise", () => {
       done()
     })
   })
-  it("2.2.7.1.2 x 是一个 Promise 实例，且失败了", done => {
+  it("2.2.7.1.2 success 的返回值是一个 Promise 实例，且失败了", done => {
     const promise1 = new Promise((resolve, reject) => {
       resolve()
     })
     const fn = sinon.fake()
     const promise2 = promise1.then(() => new Promise((resolve, reject) => reject()))
+    promise2.then(null, fn)
+    setTimeout(() => {
+      assert(fn.called)
+      done()
+    })
+  })
+  it("2.2.7.1.2 fail 的返回值是一个 Promise 实例", done => {
+    const promise1 = new Promise((resolve, reject) => {
+      reject()
+    })
+    const fn = sinon.fake()
+    const promise2 = promise1.then(
+      null,
+      () => new Promise(resolve => resolve())
+    )
+    promise2.then(fn, null)
+    setTimeout(() => {
+      assert(fn.called)
+      done()
+    })
+  })
+  it("2.2.7.1.2 fail 的返回值是一个 Promise 实例， 且失败了", done => {
+    const promise1 = new Promise((resolve, reject) => {
+      reject()
+    })
+    const fn = sinon.fake()
+    const promise2 = promise1.then(
+      null,
+      () => new Promise((resolve, reject) => reject())
+    )
     promise2.then(null, fn)
     setTimeout(() => {
       assert(fn.called)
