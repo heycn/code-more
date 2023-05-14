@@ -227,4 +227,36 @@ describe("Promise", () => {
       done()
     })
   })
+  it("2.2.7.2 如果 success 抛出一个异常 e，promise2 必须被拒绝", done => {
+    const promise1 = new Promise((resolve, reject) => {
+      resolve()
+    })
+    const fn = sinon.fake()
+    const error = new Error()
+    const promise2 = promise1.then(() => {
+      throw error
+    })
+    promise2.then(null, fn)
+    setTimeout(() => {
+      assert(fn.called)
+      assert(fn.calledWith(error))
+      done()
+    })
+  })
+  it("2.2.7.2 如果 fail 抛出一个异常 e，promise2 必须被拒绝", done => {
+    const promise1 = new Promise((resolve, reject) => {
+      reject()
+    })
+    const fn = sinon.fake()
+    const error = new Error()
+    const promise2 = promise1.then(null, () => {
+      throw error
+    })
+    promise2.then(null, fn)
+    setTimeout(() => {
+      assert(fn.called)
+      assert(fn.calledWith(error))
+      done()
+    })
+  })
 })
