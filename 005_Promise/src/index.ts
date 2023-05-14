@@ -7,7 +7,7 @@ class Promise2 {
   resolve(result) {
     if (this.state !== "pending") return
     this.state = "fulfilled"
-    process.nextTick(() => {
+    nextTick(() => {
       this.callbacks.forEach(handle => {
         if (typeof handle[0] === 'function') {
           let x
@@ -24,7 +24,7 @@ class Promise2 {
   reject(reason) {
     if (this.state !== "pending") return
     this.state = "rejected"
-    process.nextTick(() => {
+    nextTick(() => {
       this.callbacks.forEach(handle => {
         if (typeof handle[1] === 'function') {
           let x
@@ -98,3 +98,20 @@ class Promise2 {
 }
 
 export default Promise2
+
+function nextTick(fn) {
+  if (process !== undefined && typeof process.nextTick === "function") {
+    return process.nextTick(fn);
+  } else {
+    var counter = 1;
+    var observer = new MutationObserver(fn);
+    var textNode = document.createTextNode(String(counter));
+
+    observer.observe(textNode, {
+      characterData: true
+    });
+
+    counter = counter + 1;
+    textNode.data = String(counter);
+  }
+}
