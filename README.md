@@ -15,7 +15,7 @@
 - [x] [deepClone/手写深拷贝](/002_DeepClone/)
 - [x] [Method Chaining/链式编程](/003_MethodChaining/)
 - [x] [手写 bind](/004_Bind/)
-- [ ] [手写 Promise](/005_Promise/)
+- [x] [手写 Promise](/005_Promise/)
 - [x] [EventLoop/事件循环](/006_EventLoop/)
 - [x] [实现简版 Vue2 响应式原理](/007_Vue2Reactivity/)
 - [x] [关于递归及优化](https://github.com/heycn/code-more/issues/9)
