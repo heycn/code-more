@@ -7,26 +7,26 @@ class Promise2 {
   resolve(result) {
     if (this.state !== "pending") return
     this.state = "fulfilled"
-    setTimeout(() => {
+    process.nextTick(() => {
       this.callbacks.forEach(handle => {
         if (typeof handle[0] === 'function') {
           const x = handle[0].call(undefined, result)
           handle[2].resolveWith(x)
         }
       })
-    }, 0)
+    })
   }
   reject(reason) {
     if (this.state !== "pending") return
     this.state = "rejected"
-    setTimeout(() => {
+    process.nextTick(() => {
       this.callbacks.forEach(handle => {
         if (typeof handle[1] === 'function') {
           const x = handle[1].call(undefined, reason)
           handle[2].resolveWith(x)
         }
       })
-    }, 0)
+    })
   }
   constructor(fn: Function) {
     if (typeof fn !== "function") {

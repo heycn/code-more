@@ -8,7 +8,6 @@ chai.use(sinonChai)
 
 import Promise from '../src'
 
-
 describe("Promise", () => {
   it("是一个类", () => {
     assert.isFunction(Promise)
@@ -171,6 +170,30 @@ describe("Promise", () => {
     })
     promise1.then(() => "成功", () => {}).then(result => {
       assert.equal(result, "成功")
+      done()
+    })
+  })
+  it("2.2.7.1.2 x 是一个 Promise 实例", done => {
+    const promise1 = new Promise((resolve, reject) => {
+      resolve()
+    })
+    const fn = sinon.fake()
+    const promise2 = promise1.then(() => new Promise(resolve => resolve()))
+    promise2.then(fn)
+    setTimeout(() => {
+      assert(fn.called)
+      done()
+    })
+  })
+  it("2.2.7.1.2 x 是一个 Promise 实例，且失败了", done => {
+    const promise1 = new Promise((resolve, reject) => {
+      resolve()
+    })
+    const fn = sinon.fake()
+    const promise2 = promise1.then(() => new Promise((resolve, reject) => reject()))
+    promise2.then(null, fn)
+    setTimeout(() => {
+      assert(fn.called)
       done()
     })
   })
