@@ -26,6 +26,7 @@
 - [x] [封装原生 Popover](https://github.com/heycn/code-more/issues/4)
 - [x] [写一个提取 URL 参数的 JS 方法](https://github.com/heycn/code-more/issues/3)
 - [x] [理解「函数柯里化」](https://github.com/heycn/code-more/issues/10)
+- [x] [我的自定义校验规则](https://github.com/heycn/code-more/issues/11)
 
 ## 我的联系方式
 
