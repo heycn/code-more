@@ -28,10 +28,10 @@
 - [x] [理解「函数柯里化」](https://github.com/heycn/code-more/issues/10)
 - [x] [我的自定义校验规则](https://github.com/heycn/code-more/issues/11)
 - [ ] [排序算法]()
-  1. [ ] [选择排序(递归写法)]() / [选择排序(循环写法)]()
-  2. [ ] [快速排序]()
-  3. [ ] [归并排序]()
-  4. [ ] [计数排序]()
+  1. [ ] [选择排序(递归/循环)](/008_Sort/SelectionSort.js)
+  2. [ ] [快速排序](/008_Sort/QuickSort.js)
+  3. [ ] [归并排序](/008_Sort/MergeSort.js)
+  4. [ ] [计数排序](/008_Sort/CountingSort.js)
 
 ## 我的联系方式
 
