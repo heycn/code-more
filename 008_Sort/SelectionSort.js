@@ -14,7 +14,6 @@
  * 3. 使用到：数组、递归
  ******************************************************************************************************/
 
-
 const min = numbers =>
   numbers.length > 2
     ? min([numbers[0], min(numbers.slice(1))])
@@ -22,6 +21,17 @@ const min = numbers =>
 
 const minIndex = numbers =>
   numbers.indexOf(min(numbers))
+
+// 以下是循环的写法
+// const minIndex = numbers => {
+//   let index = 0
+//   for(let i = 1; i < numbers.length; i++){
+//     if(numbers[i] < numbers[index]){
+//       index = i
+//     }
+//   }
+//   return index
+// }
 
 const sort = numbers => {
   if (numbers.length > 2) {
