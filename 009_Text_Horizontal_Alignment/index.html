@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>文字左右对齐</title>
+</head>
+<style>
+  div {
+    border: 1px solid red;
+    font-size: 20px;
+  }
+
+  span {
+    border: 1px solid green;
+    display: inline-block;
+    width: 5em;
+    text-align: justify;
+    overflow: hidden;
+    height: 1.2em;
+  }
+
+  span::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div>
+    <span>姓名</span>
+    <br>
+    <span>联系方式</span>
+  </div>
+</body>
+
+</html>

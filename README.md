@@ -27,6 +27,7 @@
 - [x] [写一个提取 URL 参数的 JS 方法](https://github.com/heycn/code-more/issues/3)
 - [x] [理解「函数柯里化」](https://github.com/heycn/code-more/issues/10)
 - [x] [我的自定义校验规则](https://github.com/heycn/code-more/issues/11)
+- [x] [文字左右对齐](/009_Text_Horizontal_Alignment/)
 - [ ] [排序算法]()
   1. [ ] [选择排序(递归/循环)](/008_Sort/SelectionSort.js)
   2. [ ] [快速排序](/008_Sort/QuickSort.js)
