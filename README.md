@@ -28,6 +28,7 @@
 - [x] [理解「函数柯里化」](https://github.com/heycn/code-more/issues/10)
 - [x] [我的自定义校验规则](https://github.com/heycn/code-more/issues/11)
 - [x] [文字两端对齐](/009_TextHorizontalAlignment/)
+- [x] [动态REM适配方案](/010_Dynamic_REM/)
 - [ ] [排序算法]()
   1. [ ] [选择排序(递归/循环)](/008_Sort/SelectionSort.js)
   2. [ ] [快速排序](/008_Sort/QuickSort.js)
