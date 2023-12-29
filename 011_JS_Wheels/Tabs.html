@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tabs</title>
+    <style>
+      .tabs > ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .tabs > ol.tabs-bar {
+        display: flex;
+        border-bottom: 1px solid red;
+      }
+      .tabs > ol.tabs-bar > li {
+        padding: 4px 8px;
+        border: 1px solid transparent;
+        border-bottom: 0;
+      }
+      .tabs > ol.tabs-bar > li:hover {
+        border-color: red;
+      }
+
+      .tabs > ol.tabs-bar > li.active {
+        border-color: blue;
+      }
+      .tabs > ol.tabs-content > li {
+        display: none;
+      }
+      .tabs > ol.tabs-content > li.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabs my-tabs">
+      <ol class="tabs-bar">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ol>
+      <ol class="tabs-content">
+        <li>content 1</li>
+        <li>content 2</li>
+        <li>content 3</li>
+      </ol>
+    </div>
+
+    <div class="tabs xxx">
+      <ol class="tabs-bar">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ol>
+      <ol class="tabs-content">
+        <li>content 1</li>
+        <li>content 2</li>
+        <li>content 3</li>
+      </ol>
+    </div>
+  </body>
+  <script>
+    class Tabs {
+      constructor(selector) {
+        this.elements = $(selector)
+        this.init()
+        this.bindEvents()
+      }
+
+      init() {
+        this.elements.each((index, element) => {
+          $(element).children('.tabs-bar').children('li').eq(0).addClass('active')
+          $(element).children('.tabs-content').children('li').eq(0).addClass('active')
+        })
+      }
+
+      bindEvents() {
+        this.elements.on('click', '.tabs-bar > li', e => {
+          const $li = $(e.currentTarget)
+          $li.addClass('active').siblings().removeClass('active')
+          const index = $li.index()
+          const $content = $li.closest('.tabs').find('.tabs-content>li').eq(index)
+          $content.addClass('active').siblings().removeClass('active')
+        })
+      }
+    }
+
+    // -----------------------------------------------------
+    // ----------------------- 使用 -------------------------
+    // -----------------------------------------------------
+    const tabs = new Tabs('.my-tabs')
+  </script>
+</html>

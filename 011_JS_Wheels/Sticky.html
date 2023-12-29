@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sticky</title>
+    <style>
+      .sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      /*-------------------*/
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #topbar {
+        background: green;
+        height: 60px;
+        color: white;
+        text-align: center;
+      }
+
+      .topbarPlaceholder {
+        height: 60px;
+      }
+
+      main {
+        background: #ddd;
+        height: 1800px;
+      }
+
+      #topbar.sticky {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topbar">topbar</div>
+    <main>
+      <p>文字文字1</p>
+      <p>文字文字2</p>
+      <button>被黏住的按钮</button>
+      <p>文字文字3</p>
+      <p>文字文字4</p>
+      <p>文字文字5</p>
+      <p>文字文字6</p>
+      <p>文字文字7</p>
+      <p>文字文字8</p>
+      <p>文字文字9</p>
+      <p>文字文字10</p>
+      <p>文字文字11</p>
+    </main>
+  </body>
+  <script>
+    class Sticky {
+      constructor(selector, offset = 0) {
+        this.elements = $(selector)
+        this.offset = offset
+        this.addPlaceholder()
+        this.cacheOffsets()
+        this.listenToScroll()
+      }
+
+      addPlaceholder() {
+        this.elements.each((index, element) => {
+          const $element = $(element)
+          $element.wrap('<div class="stickyPlaceholder"></div>')
+          $element.parent().height($element.height())
+        })
+      }
+
+      cacheOffsets() {
+        this.offsets = []
+        this.elements.each((index, element) => {
+          this.offsets[index] = $(element).offset()
+        })
+      }
+
+      listenToScroll() {
+        $(window).on('scroll', () => {
+          const scrollY = window.scrollY
+          this.elements.each((index, element) => {
+            const $element = $(element)
+            if (scrollY + this.offset > this.offsets[index].top) {
+              $element.addClass('sticky').css({ top: this.offset })
+            } else {
+              $element.removeClass('sticky')
+            }
+          })
+        })
+      }
+    }
+
+    // -----------------------------------------------------
+    // ----------------------- 使用 -------------------------
+    // -----------------------------------------------------
+    new Sticky('#topbar')
+    new Sticky('button', 60)
+  </script>
+</html>

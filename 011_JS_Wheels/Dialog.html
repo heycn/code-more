@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dialog</title>
+    <style>
+      .myDialog {
+        background: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .myDialog-wrapper {
+        background: white;
+        padding: 20px;
+        min-width: 200px;
+      }
+
+      .myDialog-header {
+        border-bottom: 1px solid;
+      }
+      .myDialog-main {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .myDialog-footer {
+        text-align: right;
+      }
+      .myDialog-footer button {
+        margin-left: 10px;
+      }
+
+      /*-----*/
+
+      .userDialog {
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="x">显示 Dialog</button>
+  </body>
+  <script>
+    class Dialog {
+      constructor(options) {
+        this.options = options
+        this.init()
+      }
+      get template() {
+        let { title, content } = this.options
+        return `
+          <div class="myDialog">
+            <div class="myDialog-wrapper">
+              <header class="myDialog-header">${title}</header>
+              <main class="myDialog-main">${content}</main>
+              <footer class="myDialog-footer"></footer>
+            </div>
+          </div>
+        `
+      }
+      generateButtons() {
+        const { buttons } = this.options
+        const _button = buttons.map(buttonOption => {
+          const $b = $('<button></button>')
+          $b.text(buttonOption.text)
+          $b.on('click', buttonOption.action)
+          return $b
+        })
+        return _button
+      }
+      init() {
+        const $dialog = $(this.template)
+        $dialog.find('footer').append(this.generateButtons())
+        $dialog.addClass(this.options.className)
+        this.$dialog = $dialog
+      }
+      open() {
+        this.$dialog.appendTo('body')
+      }
+      close() {
+        this.$dialog.detach()
+      }
+    }
+
+    // -----------------------------------------------------
+    // ----------------------- 使用 -------------------------
+    // -----------------------------------------------------
+    x.onclick = function () {
+      var dialog = new Dialog({
+        title: '标题',
+        content: '<b>内容: </b><span>这是一个 Dialog</span>',
+        className: 'userDialog',
+        buttons: [
+          {
+            text: '确定',
+            action: () => {
+              setTimeout(() => {
+                dialog.close()
+              }, 1000)
+            },
+          },
+          {
+            text: '取消',
+            action: () => {
+              dialog.close()
+            },
+          },
+        ],
+      })
+      dialog.open()
+    }
+  </script>
+</html>
